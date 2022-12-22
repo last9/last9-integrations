@@ -18,6 +18,6 @@ Sample setups of common Prometheus exporters.
 
 ### Blog post reference code
 
-Reference code use for Last9 blog posts
+Reference code use for Last9 blog posts.
 
 - [Scaling Prometheus remote write](./posts/prometheus-scaling)
