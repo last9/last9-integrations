@@ -6,16 +6,12 @@ Integrations and reference code used for Last9 products.
 
 Sample setups of common remote write integrations.
 
-- [vmagent](./levitate/remote-write/vmagent)
-- [opentelemetry-collector/](./levitate/remote-write/opentelemetry-collector)
+- [statsd](./levitate/remote-write/statsd)
+- [vmagent](./levitate/remote-write/vmagent) - Pending
 
 ### exporters
 
 Sample setups of common Prometheus exporters.
 
-- [kube-state-metrics](./levitate/exporter/kube-state-metrics)
-- [statping](./levitate/exporter/statping)
-
-### Blog post reference code
-
-- [Scaling Prometheus remote write](./posts/prometheus-scaling)
+- [kube-state-metrics](./levitate/exporter/kube-state-metrics) - Pending
+- [statping](./levitate/exporter/statping) - Pending
