@@ -1,0 +1,35 @@
+version: '3.6'
+services:
+
+  statsd:
+    build: statsd
+    ports:
+      - 8125:8125/udp
+      - 8126:8126/udp
+    restart: always
+
+  statsd_exporter:
+    image: prom/statsd-exporter
+    ports:
+      - 9102:9102/tcp
+    command:
+      - "--statsd.listen-udp=:9125"
+      - "--web.listen-address=:9102"
+    restart: always
+
+  vmagent_levitate:
+    image: victoriametrics/vmagent:v1.85.3
+    ports:
+      - 8429:8429
+    volumes:
+      - vmagentdata:/vmagentdata
+      - ./vmagent.yaml:/etc/prometheus/prometheus.yaml
+    command:
+      - "--promscrape.config=/etc/prometheus/prometheus.yaml"
+      - "--remoteWrite.url=${LEVITATE_REMOTE_WRITE_URL}"
+      - "--remoteWrite.basicAuth.username=${LEVITATE_REMOTE_WRITE_USERNAME}"
+      - "--remoteWrite.basicAuth.password=${LEVITATE_REMOTE_WRITE_PASSWORD}"
+    restart: always
+
+volumes:
+  vmagentdata: {}
