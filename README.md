@@ -42,5 +42,5 @@ Sample setups of common remote write integrations.
 
 Sample setups of common Prometheus exporters.
 
-- [kube-state-metrics](./levitate/exporter/kube-state-metrics) - Pending
+- [kube-state-metrics](./levitate/exporter/kube-state-metrics) - WIP 🏗️
 - [statping](./levitate/exporter/statping) - WIP 🏗️
