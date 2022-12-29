@@ -22,6 +22,8 @@ With Levitate, you can resolve incidents faster with decreased querying times, a
 
 Levitate is easy to integrate with any source that can send metrics to Prometheus. 
 
+----
+
 There are two ways data can be sent to Levitate - via **remote write** OR via **exporters**. Find sample applications of supported integrations below.
 
 ### remote-write
