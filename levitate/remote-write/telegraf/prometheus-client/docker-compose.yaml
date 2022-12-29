@@ -1,0 +1,26 @@
+version: '3.6'
+services:
+  telegraf:
+    image: telegraf:1.24
+    volumes:
+    - ./telegraf/etc/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    ports:
+    - '8125:8125/udp'
+    - '9273:9273'
+
+  vmagent_levitate:
+    image: victoriametrics/vmagent:v1.85.3
+    ports:
+      - 8429:8429
+    volumes:
+      - vmagentdata:/vmagentdata
+      - ./vmagent.yaml:/etc/prometheus/prometheus.yaml
+    command:
+      - "--promscrape.config=/etc/prometheus/prometheus.yaml"
+      - "--remoteWrite.url=${LEVITATE_REMOTE_WRITE_URL}"
+      - "--remoteWrite.basicAuth.username=${LEVITATE_REMOTE_WRITE_USERNAME}"
+      - "--remoteWrite.basicAuth.password=${LEVITATE_REMOTE_WRITE_PASSWORD}"
+    restart: always
+
+volumes:
+  vmagentdata: {}
