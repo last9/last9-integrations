@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  telegraf:
+    image: telegraf:1.24
+    volumes:
+    - ./telegraf/etc/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    environment:
+      - LEVITATE_REMOTE_WRITE_URL=${LEVITATE_REMOTE_WRITE_URL}
+      - LEVITATE_REMOTE_WRITE_USERNAME=${LEVITATE_REMOTE_WRITE_USERNAME}
+      - LEVITATE_REMOTE_WRITE_PASSWORD=${LEVITATE_REMOTE_WRITE_PASSWORD}
+    ports:
+    - '8125:8125/udp'
+    restart: always
+
+volumes:
+  vmagentdata: {}
