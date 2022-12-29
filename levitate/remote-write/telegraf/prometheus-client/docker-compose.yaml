@@ -7,6 +7,7 @@ services:
     ports:
     - '8125:8125/udp'
     - '9273:9273'
+    restart: always
 
   vmagent_levitate:
     image: victoriametrics/vmagent:v1.85.3
