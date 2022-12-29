@@ -24,7 +24,7 @@ Levitate is easy to integrate with any source that can send metrics to Prometheu
 
 ----
 
-There are two ways data can be sent to Levitate - via **remote write** OR via **exporters**. Find sample applications of supported integrations below.
+Find sample applications of supported integrations and some useful exporter demo setups below.
 
 ### remote-write
 
