@@ -3,7 +3,7 @@
 This directory contains an example of prometheus receiver setup with opentelemetry collector which sends
 data to [Levitate](https://last9.io/products/levitate)
 
-Please go through the tutorial [here]() for a walk-through of the setup and the information flow.
+Follow through the tutorial [here](https://docs.last9.io/docs/integration-opentelemetry) for a walk-through of the setup and the information flow, side by side.
 
 ### Running
 
