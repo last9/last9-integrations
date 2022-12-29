@@ -8,6 +8,7 @@ Sample setups of common remote write integrations.
 
 - [statsd](./levitate/remote-write/statsd)
 - [opentelemetry collector via prometheus receiver](./levitate/remote-write/opentelemetry-collector/prometheus-receiver)
+- [telegraf](./levitate/remote-write/telegraf)
 - [vmagent](./levitate/remote-write/vmagent) - Pending
 
 ### exporters
