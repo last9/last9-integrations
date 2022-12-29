@@ -11,8 +11,6 @@ services:
       - "8888:8888"   # Prometheus metrics exposed by the collector
       - "4317:4317"   # OTLP gRPC receiver
       - "4318:4318"   # OTLP http receiver
-    networks:
-      - monitoring
 
   app:
     container_name: app
@@ -25,9 +23,3 @@ services:
       - "9000:9000" # app
     depends_on:
       - otel-collector
-    networks:
-      - monitoring
-
-networks:
-  monitoring:
-    driver: bridge  

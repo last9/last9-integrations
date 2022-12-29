@@ -12,7 +12,7 @@ receivers:
       - job_name: 'otel-collector-01'
         scrape_interval: 60s
         static_configs:
-        - targets: ['otel-collector:8888', '127.0.0.1:8000']
+        - targets: ['otel-collector:8888', 'app:8000']
 
 exporters:
   prometheusremotewrite:
