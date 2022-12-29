@@ -7,6 +7,7 @@ Integrations and reference code used for Last9 products.
 Sample setups of common remote write integrations.
 
 - [statsd](./levitate/remote-write/statsd)
+- [telegraf](./levitate/remote-write/telegraf)
 - [vmagent](./levitate/remote-write/vmagent) - Pending
 
 ### exporters
