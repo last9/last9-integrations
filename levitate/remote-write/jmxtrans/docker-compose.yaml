@@ -15,7 +15,6 @@ services:
       SECONDS_BETWEEN_RUNS: 5
       GRAPHITE_HOST: vmagent_levitate
       GRAPHITE_PORT: 2003
-      PROXY_HOST: localhost
     volumes:
       - ./jmxtrans-config:/var/lib/jmxtrans
     depends_on:
