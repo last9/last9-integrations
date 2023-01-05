@@ -1,0 +1,39 @@
+# Java app and JVM config sourced from http://mintbeans.com/jvm-monitoring-docker/
+version: '3.6'
+services:
+  jvmapp:
+    build: jvmapp
+    container_name: jvmapp
+    ports:
+      - "4000:4000"
+
+  jmxtrans:
+    image: jmxtrans/jmxtrans
+    container_name: jmxtrans
+    environment:
+      CONTINUE_ON_ERROR: "false"
+      SECONDS_BETWEEN_RUNS: 5
+      GRAPHITE_HOST: vmagent_levitate
+      GRAPHITE_PORT: 2003
+    volumes:
+      - ./jmxtrans-config:/var/lib/jmxtrans
+    depends_on:
+      - jvmapp
+
+  vmagent_levitate:
+    image: victoriametrics/vmagent:v1.85.3
+    ports:
+      - 8430:8429
+      - 2003:2003/tcp
+      - 2003:2003/udp
+    volumes:
+      - vmagentdata:/vmagentdata
+    command:
+      - "--graphiteListenAddr=:2003"
+      - "--remoteWrite.url=${LEVITATE_REMOTE_WRITE_URL}"
+      - "--remoteWrite.basicAuth.username=${LEVITATE_REMOTE_WRITE_USERNAME}"
+      - "--remoteWrite.basicAuth.password=${LEVITATE_REMOTE_WRITE_PASSWORD}"
+    restart: always
+
+volumes:
+  vmagentdata: {}

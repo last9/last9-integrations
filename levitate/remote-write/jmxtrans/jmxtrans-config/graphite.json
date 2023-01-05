@@ -1,0 +1,28 @@
+{
+  "servers": [
+    {
+      "host": "jvmapp",
+      "port": "4000",
+      "queries": [
+        {
+          "obj": "java.lang:type=Memory",
+          "attr": [
+            "HeapMemoryUsage",
+            "NonHeapMemoryUsage"
+          ],
+          "outputWriters": [
+            {
+              "@class": "com.googlecode.jmxtrans.model.output.StdOutWriter"
+            },
+            {
+              "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriterFactory",
+              "host": "vmagent_levitate",
+              "port": "2003",
+              "rootPrefix": "sample.service"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
