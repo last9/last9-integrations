@@ -11,4 +11,9 @@ using InfluxDB http output plugin with data_format as prometheusremotewrite.
 
 ### Validate
 
-1. The above run should publish the [test app](./test/statsd-test.py) metrics to Levitate. Query for a sample metric `performance_request_successful_count_value` to validate.
+1. Run a test app that sends metrics to Telegraf.
+   ```
+   pip install -r requirements.txt
+   python ./test/statsd-test.py
+   ```
+2. After 5 minutes, query for a sample metric `performance_request_successful_count_value`.
