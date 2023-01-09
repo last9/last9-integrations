@@ -1,7 +1,7 @@
 This folder contains demo code for statsd to Levitate remote write integration
 using stasd_exporter relay method.
 
-Read more about the flow [here]()
+Read more about the flow [here](https://docs.last9.io/docs/levitate-integrations-statsd#relay-method)
 
 ### Steps
 
