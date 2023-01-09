@@ -1,7 +1,7 @@
 This folder contains demo code for Telegraf to Levitate remote write integration
 using InfluxDB output plugin pointing to vmagent.
 
-Read more about the flow [here]()
+Read more about the flow [here](https://docs.last9.io/docs/levitate-integrations-telegraf)
 
 
 ### Steps
