@@ -1,7 +1,9 @@
-This folder contains demo code for Telegraf to Levitate remote write integration
+### Overview
+
+This directory contains demo code for Telegraf to Levitate remote write integration
 using InfluxDB output plugin pointing to vmagent.
 
-Read more about the flow [here](https://docs.last9.io/docs/levitate-integrations-telegraf)
+Read more about the flow [here](https://docs.last9.io/docs/levitate-integrations-telegraf).
 
 
 ### Steps
@@ -19,4 +21,4 @@ Read more about the flow [here](https://docs.last9.io/docs/levitate-integrations
    pip install -r requirements.txt
    python ./test/statsd-test.py
    ```
-2. After 5 minutes, query for a sample metric `performance_request_successful_count_value`.
+2. After few minutes, query for a sample metric `performance_request_successful_count_value` using Levitate read endpoint.
