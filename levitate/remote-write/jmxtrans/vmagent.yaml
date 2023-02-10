@@ -1,0 +1,6 @@
+- action: graphite
+  match: "*.*.*.*.*"
+  labels:
+    __name__: "${5}"
+    service: "${1}_${2}"
+    instance: "${3}

@@ -14,4 +14,24 @@ setup, please use a Linux variant.
 
 ### Validate
 
-1. The above run should publish the [sample app](./jvmapp/SampleApp.java) metrics to Levitate. Query for a sample metric `sample.service.jvmapp_4000.sun_management_MemoryImpl.HeapMemoryUsage_committed` to validate.
+1. The above run should publish the [sample app](./jvmapp/SampleApp.java) metrics to Levitate.
+2. By default, graphite metrics are dumped in `a.b.c.d` format. This can lead to increase in metric names and remove the flexibility of labels i.e. instead of having `requests{host='a'}`, without any
+   transformation, the metric would show up as `requests.host.a`
+3. To address this, we leverage vmagent [graphite relabeling](https://docs.victoriametrics.com/vmagent.html#graphite-relabeling). A sample setup is added in [vmagent.yaml](vmagent.yaml), which converts a flattened metric like
+
+    ```
+    "metric": {
+      "__name__": "sample.service.jvmapp_4000.sun_management_MemoryImpl.HeapMemoryUsage_committed",
+    },
+    ```
+
+    to
+
+    ```
+    "metric": {
+      "__name__": "HeapMemoryUsage_committed",
+      "service": "sample_service",
+      "instance": "jvmapp_4000",
+    }
+    ```
+4. This sample [vmagent.yaml](vmagent.yaml) can be modified for any other relabeling as required.
