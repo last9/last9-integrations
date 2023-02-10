@@ -28,7 +28,7 @@ services:
       - 2003:2003/udp
     volumes:
       - vmagentdata:/vmagentdata
-      - ./vmagent.yaml:/etc/prometheus/prometheus.yaml
+      - ./vmagent.yaml:/etc/vmagent.yaml
     command:
       - "--graphiteListenAddr=:2003"
       - "--remoteWrite.url=${LEVITATE_REMOTE_WRITE_URL}"
