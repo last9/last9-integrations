@@ -1,6 +1,6 @@
-- action: graphite
-  match: "*.*.*.*.*"
-  labels:
-    __name__: "${5}"
-    service: "${1}_${2}"
-    instance: "${3}
+global:
+  scrape_interval: 1m
+scrape_configs:
+  - job_name: "scrape_vmagent_self"
+    static_configs:
+    - targets: [ "localhost:8429" ]

@@ -28,13 +28,15 @@ services:
       - 2003:2003/udp
     volumes:
       - vmagentdata:/vmagentdata
+      - ./relabel.yaml:/etc/relabel.yaml
       - ./vmagent.yaml:/etc/vmagent.yaml
     command:
       - "--graphiteListenAddr=:2003"
       - "--remoteWrite.url=${LEVITATE_REMOTE_WRITE_URL}"
       - "--remoteWrite.basicAuth.username=${LEVITATE_REMOTE_WRITE_USERNAME}"
       - "--remoteWrite.basicAuth.password=${LEVITATE_REMOTE_WRITE_PASSWORD}"
-      - "--remoteWrite.relabelConfig=/etc/vmagent.yaml"
+      - "--remoteWrite.relabelConfig=/etc/relabel.yaml"
+      - "--promscrape.config=/etc/vmagent.yaml"
     restart: always
 
 volumes:
