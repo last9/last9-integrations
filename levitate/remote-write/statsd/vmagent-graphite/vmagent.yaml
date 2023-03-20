@@ -1,4 +1,5 @@
 global:
+  # Sane default of 1 minute. Anything less than this is too frequent.
   scrape_interval: 1m
 scrape_configs:
   - job_name: "scrape_vmagent_self"
