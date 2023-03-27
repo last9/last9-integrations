@@ -115,7 +115,7 @@
           },
           "exemplar": true,
           "expr": "sum by (InstanceId) (amazonaws_com_AWS_EC2_CPUUtilization_sum{InstanceId=~'$EC2_Instance_Identifier'}) / sum by (InstanceId) (amazonaws_com_AWS_EC2_CPUUtilization_count{InstanceId=~'$EC2_Instance_Identifier'})",
-          "interval": "1m",
+          "interval": "5m",
           "legendFormat": "",
           "refId": "A"
         }
@@ -209,7 +209,7 @@
           },
           "exemplar": true,
           "expr": "sum by (InstanceId) (amazonaws_com_AWS_EC2_StatusCheckFailed_sum{InstanceId=~'$EC2_Instance_Identifier'})",
-          "interval": "1m",
+          "interval": "5m",
           "legendFormat": "",
           "refId": "A"
         }
@@ -303,7 +303,7 @@
           },
           "exemplar": true,
           "expr": "sum by (InstanceId) (amazonaws_com_AWS_EC2_CPUCreditBalance{InstanceId=~'$EC2_Instance_Identifier', quantile='0'})",
-          "interval": "1m",
+          "interval": "5m",
           "legendFormat": "",
           "refId": "A"
         }
@@ -397,7 +397,7 @@
           },
           "exemplar": true,
           "expr": "sum by (InstanceId) (amazonaws_com_AWS_EC2_NetworkIn_sum{InstanceId=~'$EC2_Instance_Identifier'})",
-          "interval": "1m",
+          "interval": "5m",
           "legendFormat": "",
           "refId": "A"
         }
@@ -491,7 +491,7 @@
           },
           "exemplar": true,
           "expr": "sum by (InstanceId) (amazonaws_com_AWS_EC2_CPUSurplusCreditsCharged_sum{InstanceId=~'$EC2_Instance_Identifier'})",
-          "interval": "1m",
+          "interval": "5m",
           "legendFormat": "",
           "refId": "A"
         }
@@ -585,7 +585,7 @@
           },
           "exemplar": true,
           "expr": "sum by (InstanceId) (amazonaws_com_AWS_EC2_NetworkOut_sum{InstanceId=~'$EC2_Instance_Identifier'})",
-          "interval": "1m",
+          "interval": "5m",
           "legendFormat": "",
           "refId": "A"
         }
@@ -679,7 +679,7 @@
           },
           "exemplar": true,
           "expr": "sum by (InstanceId) (amazonaws_com_AWS_EC2_EBSIOBalance_{InstanceId=~'$EC2_Instance_Identifier', quantile='0'})",
-          "interval": "1m",
+          "interval": "5m",
           "legendFormat": "",
           "refId": "A"
         }
@@ -773,7 +773,7 @@
           },
           "exemplar": true,
           "expr": "sum by (InstanceId) (amazonaws_com_AWS_EC2_EBSByteBalance_{InstanceId=~'$EC2_Instance_Identifier', quantile='0'})",
-          "interval": "1m",
+          "interval": "5m",
           "legendFormat": "",
           "refId": "A"
         }
