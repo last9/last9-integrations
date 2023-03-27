@@ -10,15 +10,18 @@ The dashboard contains following metrics and variables.
 
 ### Metrics
 
-1. The percentage of CPU Utilization `amazonaws_com_AWS_RDS_CPUUtilization`
-2. Number of DB Connections `amazonaws_com_AWS_RDS_DatabaseConnections`
-3. EBS Byte Balance `amazonaws_com_AWS_RDS_EBSByteBalance_`
-4. EBS I/O Balance `amazonaws_com_AWS_RDS_EBSIOBalance_`
+1. The percentage of CPU Utilization `amazonaws_com_AWS_EC2_CPUUtilization`
+2. CPU Credit Balance `amazonaws_com_AWS_EC2_CPUCreditBalance`
+3. Network In `amazonaws_com_AWS_EC2_NetworkIn_sum`
+4. Network Out `amazonaws_com_AWS_EC2_NetworkOut_sum`
+5. Status Check Failed `amazonaws_com_AWS_EC2_StatusCheckFailed_sum`
+6. EBS IO Balance `amazonaws_com_AWS_EC2_EBSIOBalance_`
+7. EBS Byte Balance `amazonaws_com_AWS_EC2_EBSByteBalance_`
+8. CPU Surplus credits charged `amazonaws_com_AWS_EC2_CPUSurplusCreditsCharged_sum`
 
 ### Variables
 
-1. DB Instance Identifier
-2. Cloud Region
+1. EC2 Instance Identifier
 
 ## Integrate with AWS Cloudwatch Metric Stream for sending data to Levitate
 

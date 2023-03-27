@@ -139,7 +139,7 @@
             "uid": "${DATASOURCE}"
           },
           "exemplar": true,
-          "expr": "sum by (DBInstanceIdentifier, cloud_region) (amazonaws_com_AWS_RDS_CPUUtilization{DBInstanceIdentifier=~\"$DB_Instance_Identifier\", cloud_region=\"$Cloud_Region\"})",
+          "expr": "sum by (DBInstanceIdentifier, cloud_region) (amazonaws_com_AWS_RDS_CPUUtilization{DBInstanceIdentifier=~\"$DB_Instance_Identifier\", cloud_region=~\"$Cloud_Region\"})",
           "interval": "1m",
           "legendFormat": "",
           "refId": "A"
@@ -229,7 +229,7 @@
             "uid": "${DATASOURCE}"
           },
           "exemplar": true,
-          "expr": "sum by (DBInstanceIdentifier, cloud_region) (amazonaws_com_AWS_RDS_DatabaseConnections{DBInstanceIdentifier=~\"$DB_Instance_Identifier\", cloud_region=\"$Cloud_Region\"})",
+          "expr": "sum by (DBInstanceIdentifier, cloud_region) (amazonaws_com_AWS_RDS_DatabaseConnections{DBInstanceIdentifier=~\"$DB_Instance_Identifier\", cloud_region=~\"$Cloud_Region\"})",
           "interval": "1m",
           "legendFormat": "",
           "refId": "A"
@@ -319,7 +319,7 @@
             "uid": "${DATASOURCE}"
           },
           "exemplar": true,
-          "expr": "sum by (DBInstanceIdentifier, cloud_region) (amazonaws_com_AWS_RDS_EBSByteBalance_{DBInstanceIdentifier=~\"$DB_Instance_Identifier\", cloud_region=\"$Cloud_Region\"})",
+          "expr": "sum by (DBInstanceIdentifier, cloud_region) (amazonaws_com_AWS_RDS_EBSByteBalance_{DBInstanceIdentifier=~\"$DB_Instance_Identifier\", cloud_region=~\"$Cloud_Region\"})",
           "interval": "1m",
           "legendFormat": "",
           "refId": "A"
@@ -409,7 +409,7 @@
             "uid": "${DATASOURCE}"
           },
           "exemplar": true,
-          "expr": "sum by (DBInstanceIdentifier, cloud_region) (amazonaws_com_AWS_RDS_EBSIOBalance_{DBInstanceIdentifier=~\"$DB_Instance_Identifier\", cloud_region=\"$Cloud_Region\"})",
+          "expr": "sum by (DBInstanceIdentifier, cloud_region) (amazonaws_com_AWS_RDS_EBSIOBalance_{DBInstanceIdentifier=~\"$DB_Instance_Identifier\", cloud_region=~\"$Cloud_Region\"})",
           "interval": "1m",
           "legendFormat": "",
           "refId": "A"
