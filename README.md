@@ -1,21 +1,23 @@
+<a href="https://last9.io"><img src="https://last9.github.io/assets/last9-github-badge.svg" align="right" /></a>
+
 # last9-integrations
 
 Integrations and reference code used for Last9 products.
 
 ## Levitate Integrations
 
-[Levitate](https://last9.io/products/levitate) is Last9’s managed Time Series database.
+[Levitate](https://last9.io/levitate-tsdb) is Last9’s managed time series data warehouse.
 
 We built Levitate to give engineering teams a cost-effective tool to monitor large, complex systems. Now, engineering hours are not spent monitoring your monitor i.e. managing TSDB availability, scaling, replication, and multiple instances.
 
 #### Solves High Cardinality
 
-Levitate is built to handle the massive scales of data, and can handle queries at any cardinality. Above all, it gives you real-time insights into what metrics are unused.
+Levitate is built to handle the massive scales of data and can handle queries at any cardinality. Above all, it gives you real-time insights into what metrics are unused.
 
 #### Pay for what you use, reduce costs
 
-Levitate reduces storage costs by up to 50% compared to similar TSDBs. This is over and above the engineering time and overheads spent maintaining internal infrastructure.
-With Levitate's data retention policies & tiered storage, you pay for the metrics you use. Scale without having to tune the configuration, & having to run a whole setup for data scaling.
+Levitate reduces storage costs by up to 50% compared to similar TSDBs. This is over and above the engineering time, and overheads spent maintaining internal infrastructure.
+With Levitate's data retention policies & tiered storage, you pay for the metrics you use. Scale without having to tune the configuration & having to run a whole setup for data scaling.
 
 #### Increase engineering productivity
 
