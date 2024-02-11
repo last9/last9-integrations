@@ -1,13 +1,13 @@
 ## Introduction
 
-This directory contains an example of prometheus receiver setup with opentelemetry collector which sends
+This directory contains an example of a Prometheus receiver setup with OpenTelemetry collector which sends
 data to [Levitate](https://last9.io/products/levitate)
 
 Follow through the tutorial [here](https://docs.last9.io/docs/integration-opentelemetry) for a walk-through of the setup and the information flow, side by side.
 
 ### Running
 
-Replace following variables in `otel-collector-config.yaml` with the actual values from your Levitate cluster.
+Replace the following variables in `otel-collector-config.yaml` with the actual values from your Levitate cluster.
 
 ```sh
 $levitate_username -> Cluster ID
@@ -21,9 +21,9 @@ Make sure that you have docker running and then perform:
 docker-compose up -d
 ```
 
-After that the Golang application will start on port 9000 and Open Telemetry collector wil start on port `4317`.
-Send few HTTP requests on `http://localhost:9000/hello`.
-It will emit metrics which will be relayed to Levitate via Open Telemetry collector.
+After that, the Golang application will start on port 9000, and the Open Telemetry collector will start on port `4317`.
+Send a few HTTP requests on `http://localhost:9000/hello`.
+It will emit metrics relayed to Levitate via Open Telemetry collector.
 
 
 ### Verification
@@ -67,3 +67,15 @@ If all goes well, you should see the metrics as follows:
   }
 }
 ```
+
+## Related Articles
+
+[What is OpenTelemetry](https://last9.io/blog/what-is-opentelemetry/)
+
+[What is OpenTelemetry Collector](https://last9.io/blog/what-is-opentelemetry-collector/)
+
+[Instrumenting Java applications using OpenTelemetry](https://last9.io/blog/how-to-instrument-java-applications-using-opentelemetry-tutorial-best-practices/)
+
+Read more about the difference between [Prometheus vs. Otel](https://last9.io/blog/opentelemetry-vs-prometheus/#metrics-in-opentelemetry-vs-prometheus).
+
+Here is a post on [How to filter metrics by labels using OpenTelemetry Collector](https://last9.io/blog/filtering-metrics-by-labels-in-opentelemetry-collector/).
