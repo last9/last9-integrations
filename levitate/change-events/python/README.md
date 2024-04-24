@@ -4,7 +4,7 @@ This Python script is used to register a change event with the Levitate API.
 
 ### Requirements
 
-- Python 3.6 or higher
+- Python
 - requests library
 
 ### Setup
