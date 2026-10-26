@@ -3,7 +3,7 @@
     port: 8125,
     debug: true,
     backends: ["./backends/console", "./backends/graphite"],
-    graphiteHost: "vmagent_levitate",
+    graphiteHost: "vmagent_last9",
     graphitePort: 2003,
     server: "./servers/udp",
     includeStatsdMetrics: false,

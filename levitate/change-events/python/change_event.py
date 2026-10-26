@@ -2,14 +2,14 @@ import os
 import requests
 import json
 
-LEVITATE_REFRESH_TOKEN = os.getenv("LEVITATE_REFRESH_TOKEN")
-LEVITATE_ACCESS_TOKEN_API = "https://app.last9.io/api/v4/oauth/access_token"
-LEVITATE_ORG = os.getenv("LEVITATE_ORG")
+LAST9_REFRESH_TOKEN = os.getenv("LAST9_REFRESH_TOKEN")
+LAST9_ACCESS_TOKEN_API = "https://app.last9.io/api/v4/oauth/access_token"
+LAST9_ORG = os.getenv("LAST9_ORG")
 
 def api_token():
     headers = {'Content-Type': 'application/json'}
-    data = {"refresh_token": LEVITATE_REFRESH_TOKEN}
-    response = requests.post(LEVITATE_ACCESS_TOKEN_API, headers=headers, data=json.dumps(data))
+    data = {"refresh_token": LAST9_REFRESH_TOKEN}
+    response = requests.post(LAST9_ACCESS_TOKEN_API, headers=headers, data=json.dumps(data))
 
     if response.status_code != 200:
         raise Exception("Access Token can't be retrieved, {}".format(response.text))
@@ -17,13 +17,13 @@ def api_token():
     body = response.json()
     return body["access_token"]
 
-if not LEVITATE_REFRESH_TOKEN:
-    raise Exception("LEVITATE_REFRESH_TOKEN is not set")
+if not LAST9_REFRESH_TOKEN:
+    raise Exception("LAST9_REFRESH_TOKEN is not set")
 
-if not LEVITATE_ORG:
-    raise Exception("LEVITATE_ORG is not set")
+if not LAST9_ORG:
+    raise Exception("LAST9_ORG is not set")
 
-url = "https://app.last9.io/api/v4/organizations/{}/change_events".format(LEVITATE_ORG)
+url = "https://app.last9.io/api/v4/organizations/{}/change_events".format(LAST9_ORG)
 headers = {
     'Content-Type': 'application/json',
     'X-LAST9-API-TOKEN': 'Bearer {}'.format(api_token())
@@ -42,4 +42,4 @@ response = requests.put(url, headers=headers, data=json.dumps(data))
 if response.status_code == 200:
     print("Change event registered successfully")
 else:
-    raise Exception("Change Event -> Levitate failed. {}".format(response.text))
+    raise Exception("Change Event -> Last9 failed. {}".format(response.text))

@@ -1,6 +1,6 @@
-## Levitate Change Event Registration
+## Last9 Change Event Registration
 
-This Rust script is used to register a change event with the Levitate API.
+This Rust script is used to register a change event with the Last9 API.
 
 ### Requirements
 
@@ -16,8 +16,8 @@ cargo build
 Set the required environment variables:
 
 ``` shell
-export LEVITATE_REFRESH_TOKEN=
-export LEVITATE_ORG=
+export LAST9_REFRESH_TOKEN=
+export LAST9_ORG=
 ```
 
 Follow the instructions [here](https://docs.last9.io/docs/change-events) to obtain the values of the environment variables.

@@ -20,8 +20,8 @@ The dashboard contains following metrics and variables.
 1. DB Instance Identifier
 2. Cloud Region
 
-## Integrate with AWS Cloudwatch Metric Stream for sending data to Levitate
+## Integrate with AWS Cloudwatch Metric Stream for sending data to Last9
 
-Follow our integration guide for [AWS Cloudwatch Metric Stream](https://docs.last9.io/docs/how-to-send-cloudwatch-metrics-to-levitate-via-aws-cloudstream).
+Follow our integration guide for [AWS Cloudwatch Metric Stream](https://last9.io/docs/integrations/observability/aws-cloudwatch-metrics/).
 
-> Note that this step is optional, you can use the dashboard as it is with any other source apart from Levitate if you are already set up with AWS Cloudwatch Metric Stream.
+> Note that this step is optional, you can use the dashboard as it is with any other source apart from Last9 if you are already set up with AWS Cloudwatch Metric Stream.

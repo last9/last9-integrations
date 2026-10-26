@@ -5,17 +5,17 @@ require "uri"
 require "json"
 
 # Follow the guide on
-LEVITATE_REFRESH_TOKEN = ENV["LEVITATE_REFRESH_TOKEN"]
-LEVITATE_ACCESS_TOKEN_API = "https://app.last9.io/api/v4/oauth/access_token"
-LEVITATE_ORG = ENV["LEVITATE_ORG"]
+LAST9_REFRESH_TOKEN = ENV["LAST9_REFRESH_TOKEN"]
+LAST9_ACCESS_TOKEN_API = "https://app.last9.io/api/v4/oauth/access_token"
+LAST9_ORG = ENV["LAST9_ORG"]
 
-class Levitate
+class Last9
   def api_token
-    uri = URI.parse(LEVITATE_ACCESS_TOKEN_API)
+    uri = URI.parse(LAST9_ACCESS_TOKEN_API)
     request = Net::HTTP::Post.new(uri)
     request.content_type = "application/json"
     request.body = JSON.dump({
-                               "refresh_token": LEVITATE_REFRESH_TOKEN
+                               "refresh_token": LAST9_REFRESH_TOKEN
                              })
     req_options = {
       use_ssl: uri.scheme == "https",
@@ -36,13 +36,13 @@ class Levitate
 end
 
 
-raise "LEVITATE_REFRESH_TOKEN is not set" unless LEVITATE_REFRESH_TOKEN
-raise "LEVITATE_ORG is not set" unless LEVITATE_ORG
+raise "LAST9_REFRESH_TOKEN is not set" unless LAST9_REFRESH_TOKEN
+raise "LAST9_ORG is not set" unless LAST9_ORG
 
-uri = URI.parse("https://app.last9.io/api/v4/organizations/#{LEVITATE_ORG}/change_events")
+uri = URI.parse("https://app.last9.io/api/v4/organizations/#{LAST9_ORG}/change_events")
 request = Net::HTTP::Put.new(uri)
 request.content_type = "application/json"
-request["X-LAST9-API-TOKEN"] = "Bearer #{Levitate.new.api_token}"
+request["X-LAST9-API-TOKEN"] = "Bearer #{Last9.new.api_token}"
 request.body = JSON.dump({
                            "event_name" => "deployment",
                            "event_state" => "start",
@@ -64,5 +64,5 @@ end
 if response.code == '200'
   puts "Change event registered succesfully"
 else
-  raise "Change Event -> Levitate failed. #{response.body}"
+  raise "Change Event -> Last9 failed. #{response.body}"
 end

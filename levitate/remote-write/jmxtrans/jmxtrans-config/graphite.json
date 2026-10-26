@@ -16,7 +16,7 @@
             },
             {
               "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriterFactory",
-              "host": "vmagent_levitate",
+              "host": "vmagent_last9",
               "port": "2003",
               "rootPrefix": "sample.service"
             }

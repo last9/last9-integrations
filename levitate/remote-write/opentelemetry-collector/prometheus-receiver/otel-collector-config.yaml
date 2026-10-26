@@ -2,8 +2,8 @@ extensions:
   basicauth/prw:
     client_auth:
       # Replace these variables by their actual values
-      username: $levitate_username
-      password: $levitate_password
+      username: $last9_username
+      password: $last9_password
 
 receivers:
   prometheus:
@@ -18,7 +18,7 @@ exporters:
   prometheusremotewrite:
     auth:
       authenticator: basicauth/prw
-    endpoint: "$levitate_write_endpoint" # Replace this variable by its actual value
+    endpoint: "$last9_write_endpoint" # Replace this variable by its actual value
 
 service:
   extensions: [basicauth/prw]

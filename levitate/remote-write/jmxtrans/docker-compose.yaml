@@ -13,14 +13,14 @@ services:
     environment:
       CONTINUE_ON_ERROR: "false"
       SECONDS_BETWEEN_RUNS: 5
-      GRAPHITE_HOST: vmagent_levitate
+      GRAPHITE_HOST: vmagent_last9
       GRAPHITE_PORT: 2003
     volumes:
       - ./jmxtrans-config:/var/lib/jmxtrans
     depends_on:
       - jvmapp
 
-  vmagent_levitate:
+  vmagent_last9:
     image: victoriametrics/vmagent:v1.85.3
     ports:
       - 8430:8429
@@ -32,9 +32,9 @@ services:
       - ./vmagent.yaml:/etc/vmagent.yaml
     command:
       - "--graphiteListenAddr=:2003"
-      - "--remoteWrite.url=${LEVITATE_REMOTE_WRITE_URL}"
-      - "--remoteWrite.basicAuth.username=${LEVITATE_REMOTE_WRITE_USERNAME}"
-      - "--remoteWrite.basicAuth.password=${LEVITATE_REMOTE_WRITE_PASSWORD}"
+      - "--remoteWrite.url=${LAST9_REMOTE_WRITE_URL}"
+      - "--remoteWrite.basicAuth.username=${LAST9_REMOTE_WRITE_USERNAME}"
+      - "--remoteWrite.basicAuth.password=${LAST9_REMOTE_WRITE_PASSWORD}"
       - "--remoteWrite.relabelConfig=/etc/relabel.yaml"
       - "--promscrape.config=/etc/vmagent.yaml"
     restart: always
