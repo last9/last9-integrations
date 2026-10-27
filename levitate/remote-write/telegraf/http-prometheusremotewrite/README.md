@@ -1,12 +1,12 @@
-This folder contains demo code for Telegraf to Levitate remote write integration
+This folder contains demo code for Telegraf to Last9 remote write integration
 using InfluxDB http output plugin with data_format as prometheusremotewrite.
 
 ### Steps
 
 1. Update the following variables in [docker-compose.yaml](./docker-compose.yaml) or update export them as environment variables
-   - $LEVITATE_REMOTE_WRITE_URL
-   - $LEVITATE_REMOTE_WRITE_USERNAME
-   - $LEVITATE_REMOTE_WRITE_PASSWORD
+   - $LAST9_REMOTE_WRITE_URL
+   - $LAST9_REMOTE_WRITE_USERNAME
+   - $LAST9_REMOTE_WRITE_PASSWORD
 2. Run `docker-compose up --build --force-recreate --remove-orphans`
 
 ### Validate

@@ -17,7 +17,7 @@ services:
       - "--web.listen-address=:9102"
     restart: always
 
-  vmagent_levitate:
+  vmagent_last9:
     image: victoriametrics/vmagent:v1.85.3
     ports:
       - 8429:8429
@@ -26,9 +26,9 @@ services:
       - ./vmagent.yaml:/etc/prometheus/prometheus.yaml
     command:
       - "--promscrape.config=/etc/prometheus/prometheus.yaml"
-      - "--remoteWrite.url=${LEVITATE_REMOTE_WRITE_URL}"
-      - "--remoteWrite.basicAuth.username=${LEVITATE_REMOTE_WRITE_USERNAME}"
-      - "--remoteWrite.basicAuth.password=${LEVITATE_REMOTE_WRITE_PASSWORD}"
+      - "--remoteWrite.url=${LAST9_REMOTE_WRITE_URL}"
+      - "--remoteWrite.basicAuth.username=${LAST9_REMOTE_WRITE_USERNAME}"
+      - "--remoteWrite.basicAuth.password=${LAST9_REMOTE_WRITE_PASSWORD}"
     restart: always
 
 volumes:

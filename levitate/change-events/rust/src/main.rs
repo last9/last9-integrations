@@ -30,13 +30,13 @@ struct Event {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let levitate_refresh_token = env::var("LEVITATE_REFRESH_TOKEN").expect("LEVITATE_REFRESH_TOKEN is not set");
-    let levitate_org = env::var("LEVITATE_ORG").expect("LEVITATE_ORG is not set");
+    let last9_refresh_token = env::var("LAST9_REFRESH_TOKEN").expect("LAST9_REFRESH_TOKEN is not set");
+    let last9_org = env::var("LAST9_ORG").expect("LAST9_ORG is not set");
 
     let client = reqwest::blocking::Client::new();
 
     let refresh_token = RefreshToken {
-        refresh_token: levitate_refresh_token,
+        refresh_token: last9_refresh_token,
     };
 
     let res: AccessToken = client.post("https://app.last9.io/api/v4/oauth/access_token")
@@ -56,7 +56,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         },
     };
 
-    let res = client.put(&format!("https://app.last9.io/api/v4/organizations/{}/change_events", levitate_org))
+    let res = client.put(&format!("https://app.last9.io/api/v4/organizations/{}/change_events", last9_org))
         .header("X-LAST9-API-TOKEN", format!("Bearer {}", res.access_token))
         .json(&event)
         .send()?;
@@ -64,7 +64,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     if res.status().is_success() {
         println!("Change event registered successfully");
     } else {
-        eprintln!("Change Event -> Levitate failed. {}", res.text()?);
+        eprintln!("Change Event -> Last9 failed. {}", res.text()?);
     }
 
     Ok(())

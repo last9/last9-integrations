@@ -1,18 +1,18 @@
 ## Introduction
 
 This directory contains an example of a Prometheus receiver setup with OpenTelemetry collector which sends
-data to [Levitate](https://last9.io/products/levitate)
+data to [Last9](https://last9.io/metrics/)
 
 Follow through the tutorial [here](https://docs.last9.io/docs/integration-opentelemetry) for a walk-through of the setup and the information flow, side by side.
 
 ### Running
 
-Replace the following variables in `otel-collector-config.yaml` with the actual values from your Levitate cluster.
+Replace the following variables in `otel-collector-config.yaml` with the actual values from your Last9 cluster.
 
 ```sh
-$levitate_username -> Cluster ID
-$levitate_password -> Write Token
-$levitate_write_endpoint -> Levitate Remote Write endpoint
+$last9_username -> Cluster ID
+$last9_password -> Write Token
+$last9_write_endpoint -> Last9 Remote Write endpoint
 ```
 
 Make sure that you have docker running and then perform:
@@ -23,12 +23,12 @@ docker-compose up -d
 
 After that, the Golang application will start on port 9000, and the Open Telemetry collector will start on port `4317`.
 Send a few HTTP requests on `http://localhost:9000/hello`.
-It will emit metrics relayed to Levitate via Open Telemetry collector.
+It will emit metrics relayed to Last9 via Open Telemetry collector.
 
 
 ### Verification
 
-Create a Read token for Levitate cluster and connect to [Grafana](https://docs.last9.io/docs/levitate-grafana-config) for verification.
+Create a Read token for Last9 cluster and connect to [Grafana](https://last9.io/docs/grafana-config/) for verification.
 
 If all goes well, you should see the metrics as follows:
 
@@ -41,16 +41,16 @@ If all goes well, you should see the metrics as follows:
     "result": [
       {
         "metric": {
-          "__name__": "levitate_request_counts_total",
+          "__name__": "last9_request_counts_total",
           "__l9cluster__": "ebce9978-80f0-4976-9103-d435a7a4adf6",
           "__l9lake__": "prometheus",
           "__tenant__": "omecs",
           "env": "production",
           "instance": "app:8000",
           "job": "otel-collector-01",
-          "otel_scope_name": "levitate-otel-demo",
-          "program": "levitate",
-          "via_cluster": "cs-test-levitate-01"
+          "otel_scope_name": "last9-otel-demo",
+          "program": "last9",
+          "via_cluster": "cs-test-last9-01"
         },
         "values": [
           [

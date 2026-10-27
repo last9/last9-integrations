@@ -18,13 +18,13 @@ func main() {
 		log.Fatal(err)
 	}
 	provider := metric.NewMeterProvider(metric.WithReader(exporter))
-	meter := provider.Meter("levitate-otel-demo")
+	meter := provider.Meter("last9-otel-demo")
 	requestCount, _ := meter.SyncInt64().Counter(
-		"levitate/request_counts",
+		"last9/request_counts",
 		instrument.WithDescription("The number of requests received"),
 	)
 
-	programLabel := attribute.String("program", "levitate")
+	programLabel := attribute.String("program", "last9")
 	envLabel := attribute.String("env", "production")
 	labels := []attribute.KeyValue{programLabel, envLabel}
 
